@@ -1,0 +1,13 @@
+apiVersion: serving.knative.dev/v1alpha1
+kind: Service
+metadata:
+  name: knative-serverless
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: knative-1
+          env:
+            - name: TARGET
+              value: "Spring Boot Application"
