@@ -121,6 +121,10 @@ $(kubectl get pods --namespace knative-monitoring --selector=app=grafana \
 ```
 [Grafana dashboard](http://localhost:3000/)
 
+#### Auto scale
+
+<img src="https://github.com/sankarge/knative-serverless/blob/master/images/grafana.png" width="650px"></img>
+
 ### Testing serverless application
 ```shell script
 while (true);do echo ;curl -s -H "Host: knative-serverless.default.example.com" http://localhost; done
