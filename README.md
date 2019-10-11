@@ -4,7 +4,7 @@ Running serverless application on Kubernetes
 
 ## Auto scale
 
-<img src="https://github.com/sankarge/knative-serverless/blob/master/images/grafana.png" width="650px"></img>
+<img src="https://github.com/sankarge/knative-serverless/blob/master/images/grafana.png" width="800px"></img>
 
 ### References
 
@@ -34,7 +34,7 @@ To access the UI, you have to perform the following steps (in the same folder):
 
 [Minkiube Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/overview?namespace=default)
 
-#### Knative & Istio pods
+### Knative & Istio pods
 
 ```shell
 w0byy:knative-serverless sankarganesh.eswaran$ kubectl get ns
