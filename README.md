@@ -2,6 +2,12 @@
 
 Running serverless application on Kubernetes
 
+## Auto scale
+
+<img src="https://github.com/sankarge/knative-serverless/blob/master/images/grafana.png" width="650px"></img>
+
+### References
+
 - https://knative.dev/docs/
 - https://knative.dev/docs/install/knative-with-minikube/
 - https://knative.dev/docs/serving/samples/hello-world/helloworld-java-spring/index.html
@@ -120,10 +126,6 @@ $(kubectl get pods --namespace knative-monitoring --selector=app=grafana \
  --output=jsonpath="{.items..metadata.name}") 3000 &
 ```
 [Grafana dashboard](http://localhost:3000/)
-
-#### Auto scale
-
-<img src="https://github.com/sankarge/knative-serverless/blob/master/images/grafana.png" width="650px"></img>
 
 ### Testing serverless application
 ```shell script
