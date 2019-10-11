@@ -1,5 +1,7 @@
 # knative-serverless
 
+Running serverless application on Kubernetes
+
 - https://knative.dev/docs/
 - https://knative.dev/docs/install/knative-with-minikube/
 - https://knative.dev/docs/serving/samples/hello-world/helloworld-java-spring/index.html
@@ -8,11 +10,6 @@
 
 https://docs.docker.com/docker-for-mac/install/
 
-### Run Knative
-
-To run Knative locally on Minikube, perform the following steps:
-- Run Kubernetes using docker desktop
-- [Install Knative on MiniKube](https://knative.dev/docs/install/knative-with-minikube/)
 
 ### Build Docker images
 
@@ -28,6 +25,8 @@ To access the UI, you have to perform the following steps (in the same folder):
 - create a user with permissions to log into the dashboard ([how to](https://github.com/kubernetes/dashboard/blob/master/docs/user/access-control/creating-sample-user.md))
 - deploy the dashboard UI ([how to](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#deploying-the-dashboard-ui))
 - access the dashboard ([how to](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/#accessing-the-dashboard-ui))
+
+[Minkiube Dashboard](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/overview?namespace=default)
 
 #### Knative & Istio pods
 
@@ -120,6 +119,7 @@ kubectl port-forward --namespace knative-monitoring \
 $(kubectl get pods --namespace knative-monitoring --selector=app=grafana \
  --output=jsonpath="{.items..metadata.name}") 3000 &
 ```
+[Grafana dashboard](http://localhost:3000/)
 
 ### Testing serverless application
 ```shell script
