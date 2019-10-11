@@ -21,3 +21,9 @@ Run Kubernetes locally using Docker Desktop
 To run Knative locally on Minikube, perform the following steps:
 - Run Kubernetes using docker desktop
 - Install Knative on MiniKube ([how to, skip creating the Kubernetes Cluster](https://knative.dev/v0.3-docs/install/knative-with-minikube/))
+
+### Build Docker images
+
+https://github.com/GoogleContainerTools/jib
+
+./mvnw compile jib:dockerBuild -Dimage=knative-1
