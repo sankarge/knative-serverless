@@ -7,7 +7,8 @@ spec:
   template:
     spec:
       containers:
-        - image: knative-1
+        - image: sankarge/knative-1:v1
+          imagePullPolicy: Never
           env:
             - name: TARGET
               value: "Spring Boot Application"
