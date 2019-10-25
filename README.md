@@ -131,7 +131,8 @@ kubectl port-forward --namespace knative-monitoring \
 $(kubectl get pods --namespace knative-monitoring --selector=app=grafana \
  --output=jsonpath="{.items..metadata.name}") 3000 &
 ```
-[Grafana dashboard](http://localhost:3000/)
+- [Grafana](http://localhost:3000/)
+- [Deployment dashboard](http://localhost:3000/d/A_D7mgTWz/deployment?orgId=1&from=now-30m&to=now&var-deployment_namespace=default&var-deployment_name=knative-serverless-cqsp8-deployment)
 
 ### Testing serverless application
 ```shell script
