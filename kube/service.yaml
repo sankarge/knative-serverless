@@ -5,10 +5,22 @@ metadata:
   namespace: default
 spec:
   template:
+    metadata:
+      annotations:
+        # Default: Knative concurrency-based autoscaling, 100 requests in-flight per pod.
+        autoscaling.knative.dev/class:  kpa.autoscaling.knative.dev
+        autoscaling.knative.dev/metric: concurrency
+        autoscaling.knative.dev/target: "1"
+
+        # Alternative: Kubernetes CPU-based autoscaling.
+        # autoscaling.knative.dev/class:  hpa.autoscaling.knative.dev
+        # autoscaling.knative.dev/metric: cpu
+
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "5"
     spec:
       containers:
-        - image: sankarge/knative-1:v1
-          imagePullPolicy: Never
+        - image: sankarge/knative:v4
           env:
             - name: TARGET
               value: "Spring Boot Application"

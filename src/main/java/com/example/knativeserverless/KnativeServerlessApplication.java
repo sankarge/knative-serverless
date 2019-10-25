@@ -19,8 +19,13 @@ public class KnativeServerlessApplication {
     @RestController
     class Controller {
         @GetMapping("/")
-        String hello() {
-            return "Hello " + target + "!";
+        String hello() throws InterruptedException {
+            doSomething();
+            return "Hello BarCamp !";
+        }
+
+        private void doSomething() throws InterruptedException {
+            Thread.sleep(5 * 1000L);
         }
     }
 }

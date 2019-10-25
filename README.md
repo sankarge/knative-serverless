@@ -11,6 +11,7 @@ Running serverless application on Kubernetes
 - https://knative.dev/docs/
 - https://knative.dev/docs/install/knative-with-minikube/
 - https://knative.dev/docs/serving/samples/hello-world/helloworld-java-spring/index.html
+- https://github.com/meteatamel/knative-tutorial
 
 ## Local Setup with Minikube
 
@@ -21,7 +22,12 @@ https://docs.docker.com/docker-for-mac/install/
 
 https://github.com/GoogleContainerTools/jib
 ```shell script
-./mvnw compile jib:dockerBuild -Dimage=knative-1
+./mvnw compile jib:dockerBuild -Dimage=sankarge/knative:v1
+```
+
+Pushing docker images to docker registry
+```shell script
+docker push sankarge/knative:v1
 ```
 
 ### Access Kubernetes Dashboard UI
@@ -132,3 +138,8 @@ $(kubectl get pods --namespace knative-monitoring --selector=app=grafana \
 while (true);do echo ;curl -s -H "Host: knative-serverless.default.example.com" http://localhost; done
 ```
 
+### Testing auto-scaling
+Download and install [Fortio](https://github.com/fortio/fortio) if you don't have it.
+```shell script
+fortio load -t 0 -json - -H "Host: knative-serverless.default.example.com" http://localhost
+```
